@@ -33,7 +33,7 @@ const testimonials = [
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [pauseUntil, setPauseUntil] = useState(0)
-  const categories = [...new Set(testimonials.map((item) => item.category))]
+  const categories = Array.from(new Set(testimonials.map((item) => item.category)))
   const activeCategory = testimonials[activeIndex]?.category
 
   useEffect(() => {
