@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Garamond, serif;
+  --font-lato: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7f2ea;
+  color: #1a1a0e;
+  font-family: var(--font-lato);
+  overflow-x: hidden;
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-block bg-gold text-white px-6 py-3 text-xs tracking-[0.15em] uppercase font-body font-bold transition-all duration-300 hover:bg-gold-dark;
+  }
+  .btn-outline-gold {
+    @apply inline-block border border-gold text-gold px-6 py-3 text-xs tracking-[0.15em] uppercase font-body font-bold transition-all duration-300 hover:bg-gold hover:text-white;
+  }
+  .btn-outline-light {
+    @apply inline-block border border-white text-white px-6 py-3 text-xs tracking-[0.15em] uppercase font-body font-bold transition-all duration-300 hover:bg-white hover:text-dark;
+  }
+  .section-label {
+    @apply text-xs tracking-[0.25em] uppercase text-gold font-body font-bold mb-3;
+  }
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl font-normal leading-tight;
+  }
+  .divider-gold {
+    @apply w-16 h-px bg-gold my-5;
+  }
+}
+
+/* Star rating */
+.star-text {
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+}
+
+/* Smooth card hover */
+.practice-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.practice-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Testimonial fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Underline link */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #b8935a;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a1a0e; }
+::-webkit-scrollbar-thumb { background: #b8935a; border-radius: 3px; }
